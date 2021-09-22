@@ -1,9 +1,9 @@
 import React from "react";
 
-function Button({ text, color }) {
+function Button({ text, color,toggleShow}) {
   return (
     <div>
-      <button className="btn" style={{ backgroundColor: color }}>{text}</button>
+      <button className="btn" style={{ backgroundColor: color }} onClick={toggleShow}>{text}</button>
     </div>
   );
 }
