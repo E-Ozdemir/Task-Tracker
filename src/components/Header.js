@@ -6,8 +6,8 @@ function Header({title= "Task Tracker as default",toggleShow,isTaskBarShowed} ) 
     return (
        <header className="header">
            <h1>{title}</h1>
-           <Button color={isTaskBarShowed ? "steelblue" : "purple"} 
-           text = {isTaskBarShowed ? "Hide Create Task Bar":"Show Create a Task Bar"} 
+           <Button color={isTaskBarShowed ? "rgb(14, 88, 138)" : "rgb(201, 88, 44)"} 
+           text = {isTaskBarShowed ? "Hide The Bar":"Show Create Task Bar"} 
            toggleShow={toggleShow}
            />
        </header>
