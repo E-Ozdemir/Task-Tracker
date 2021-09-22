@@ -1,14 +1,23 @@
 import "./App.css";
 import Header from "./components/Header";
+import { useEffect } from "react";
 
 import {useState} from 'react'
-import { initialState } from './store/initialState';
+// import { initialState } from './store/initialState';
 import TaskList from "./components/TaskList";
 import CreateTask from "./components/CreateTask";
 
 function App() {
-  const [tasks, setTasks] = useState(initialState);
+  const [tasks, setTasks] = useState(()=>{
+    const localData = localStorage.getItem('tasks');
+    return localData ? JSON.parse(localData) : []
+  });
   const [isTaskBarShowed, setIsTaskBarShowed] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('tasks',JSON.stringify(tasks))
+  },[tasks]);
+
 
   //create task
   const onCreate= (task)=>{
