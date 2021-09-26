@@ -22,13 +22,17 @@ function App() {
   //create task
   const onCreate= (task)=>{
     const uniqID = Date.now();
-    const newTask = {uniqID, ...task}
+    console.log(uniqID);
+    const newTask = {id: uniqID, ...task}
+    console.log(tasks);
     setTasks((e)=>[newTask, ...e])
-
   }
 
   //delete task
-  const onDelete = (deletedItemID)=> setTasks(tasks.filter((task)=>task.id !== deletedItemID));
+  const onDelete = (deletedItemID)=> {
+    console.log("deleteätemId",deletedItemID);
+    setTasks(tasks.filter((task)=>task.id !== deletedItemID))
+  };
 
   //toggle done
   const toggleDone = (chosedItemID) => {
